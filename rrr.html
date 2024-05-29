@@ -1,0 +1,20 @@
+<div class="banner-bg">
+  <div class="banner-bg__one">
+    <img src="./images/Line_Vertical_1.png" alt="" />
+  </div>
+  <div class="banner-bg__two">
+    <img src="./images/Line_Vertical_2.png" alt="" />
+  </div>
+  <div class="banner-bg__three">
+    <img src="./images/Line_Vertical_3.png" alt="" />
+  </div>
+</div>
+.banner-bg { position: absolute; display: grid; grid-template-columns: repeat(3,
+1fr); top: 8%; left: 45%; overflow: hidden; } .banner-bg__one, .banner-bg__two,
+.banner-bg__three { position: relative; } .banner-bg__one img, .banner-bg__two
+img, .banner-bg__three img { height: 100%; width: auto; создать эффект
+бесконечной вертикальной прокрутки трех изображений (one, two и three), которые
+будут двигаться в разных направлениях (one и three вверх, а two вниз), создавая
+визуальный эффект вращающегося колеса. При этом, когда изображение достигает
+конца контейнера, оно должно плавно переходить к началу, создавая иллюзию
+бесконечного цикла без видимых обрезов.
