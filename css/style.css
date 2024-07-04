@@ -199,7 +199,12 @@ body {
   flex: 1 1 auto;
 }
 
+.background__container {
+  overflow: hidden;
+}
+
 .banner {
+  position: relative;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   align-items: center;
@@ -209,6 +214,7 @@ body {
 .banner-area {
   display: block;
   z-index: 5;
+  margin-right: 10px;
 }
 .banner-bg__mobile {
   display: none;
@@ -254,7 +260,6 @@ body {
   position: absolute;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  top: 8%;
   left: 45%;
   overflow: hidden;
   height: 1090px;
@@ -318,14 +323,28 @@ body {
   animation: moveUp 8s linear infinite;
 }
 
-.vector1 img {
-  content: "";
+.vector__container {
+
+}
+.vector1, .vector2 {
   position: absolute;
-  max-width: 100%;
-  top: 0;
-  left: -10%;
   overflow: hidden;
+}
+
+.vector1 {
+  top: -20%;
+  left: -30%;
+}
+
+.vector2 {
+  bottom: -30%;
+  right: -20%;
+}
+
+.vector1 img, .vector2 img {
   object-fit: cover;
+  width: 100%;
+  height: 100%;
 }
 
 .banner-blog {
@@ -520,6 +539,13 @@ body {
   .blog__payment-bubble {
     padding: 15px 35px;
   }
+  .banner-area__title {
+    font-size: 70px;
+  }
+  .banner-area__subtitle {
+    font-size: 25px;
+  }
+ 
 }
 @media (max-width: 949px) {
   .nav {
@@ -666,7 +692,7 @@ body {
   }
 }
 
-@media (max-width: 718px) {
+@media (max-width: 790px) {
   .banner {
     display: flex;
     flex-direction: column;
@@ -747,6 +773,15 @@ body {
   .banner-blog {
     margin-top: 20px;
   }
+
+  .vector1 {
+    top: -10%;
+    left: -10%;
+    width: 900px;
+  }
+ .vector2 {
+  display: none;
+ }
   .nav-footer {
     display: flex;
     flex-direction: column;
