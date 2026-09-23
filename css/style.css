@@ -1,14 +1,14 @@
 @font-face {
   font-family: "Futura PT";
-  src: url("/fonts/Futura PT Medium.ttf") format("truetype");
+  src: url("../fonts/Futura PT Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
 }
-
 
 :root {
   --font-family: "Lexend", sans-serif;
   --second-family: "Futura PT", sans-serif;
-  --third-family: "Indie Flower", sans-serif;
-  --font3: "Inter", sans-serif;
 }
 
 /*Обнуление*/
@@ -90,8 +90,12 @@ body {
 }
 
 .active__color {
-  background: #f97247 !important;
-  border: 2px solid #f97247 !important;
+  background: #c24517 !important;
+  border: 2px solid #c24517 !important;
+}
+
+.active__color .date {
+  color: #fff !important;
 }
 
 .wrapper {
@@ -237,23 +241,24 @@ body {
   color: rgba(255, 255, 255, 0.6);
 }
 .partner-button {
-  background: #f97247;
-  color: white;
+  background: #c24517;
+  color: #fff;
   border: none;
   padding: 20px 72px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
   border-radius: 48px;
-
   font-weight: 600;
   font-size: 24px;
   line-height: 133%;
   text-transform: uppercase;
-  text-align: center;
-  color: #fff;
   cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.partner-button:hover {
+  background: #b53e12;
 }
 
 .banner-bg {
@@ -276,7 +281,7 @@ body {
     to top,
     rgba(0, 0, 0, 0.5),
     transparent
-  )
+  );
   pointer-events: none; 
 }
 
@@ -431,7 +436,11 @@ body {
 }
 
 .blog__payment-bubble:hover {
-  background: #f97247;
+  background: #c24517;
+}
+
+.blog__payment-bubble:hover .date {
+  color: #fff;
 }
 
 .blog__payment-info {
