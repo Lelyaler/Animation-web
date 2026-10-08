@@ -1,29 +1,75 @@
 document.addEventListener("DOMContentLoaded", function () {
+  // --- Header Sticky Scrolled State ---
+  var header = document.querySelector(".header");
+  if (header) {
+    var checkHeaderScroll = function () {
+      if (window.scrollY > 20) {
+        header.classList.add("scrolled");
+      } else {
+        header.classList.remove("scrolled");
+      }
+    };
+    window.addEventListener("scroll", checkHeaderScroll, { passive: true });
+    checkHeaderScroll();
+  }
+
   // --- Mobile Burger Menu ---
   var burger = document.querySelector(".header__burger");
   var mobileNav = document.querySelector(".mobile-nav");
+
+  function closeMobileMenu() {
+    if (burger && mobileNav && burger.classList.contains("active")) {
+      burger.classList.remove("active");
+      mobileNav.classList.remove("active");
+      burger.setAttribute("aria-expanded", "false");
+      document.body.classList.remove("menu-open");
+    }
+  }
+
+  function toggleMobileMenu() {
+    if (!burger || !mobileNav) return;
+    var isActive = burger.classList.toggle("active");
+    mobileNav.classList.toggle("active");
+    burger.setAttribute("aria-expanded", isActive ? "true" : "false");
+    if (isActive) {
+      document.body.classList.add("menu-open");
+    } else {
+      document.body.classList.remove("menu-open");
+    }
+  }
+
   if (burger && mobileNav) {
-    burger.addEventListener("click", function () {
-      var isActive = burger.classList.toggle("active");
-      mobileNav.classList.toggle("active");
-      burger.setAttribute("aria-expanded", isActive ? "true" : "false");
+    burger.addEventListener("click", function (e) {
+      e.stopPropagation();
+      toggleMobileMenu();
     });
 
     mobileNav
-      .querySelectorAll(".nav__menu-link, .mobail-login, .mobail-sign, .partner-button")
+      .querySelectorAll("a, button, .mobile-nav__menu-link, .mobile-nav__btn")
       .forEach(function (link) {
         link.addEventListener("click", function () {
-          burger.classList.remove("active");
-          mobileNav.classList.remove("active");
-          burger.setAttribute("aria-expanded", "false");
+          closeMobileMenu();
         });
       });
+
+    document.addEventListener("click", function (e) {
+      if (!mobileNav.contains(e.target) && !burger.contains(e.target)) {
+        closeMobileMenu();
+      }
+    });
+
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") {
+        closeMobileMenu();
+      }
+    });
   }
 
   // --- Web Audio FX Synthesizer (No external assets required) ---
   var audioCtx = null;
   var soundEnabled = false;
   var soundBtn = document.getElementById("soundToggle");
+  var mobileSoundBtn = document.getElementById("mobileSoundToggle");
 
   function initAudio() {
     if (!audioCtx) {
@@ -78,20 +124,32 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  if (soundBtn) {
-    soundBtn.addEventListener("click", function () {
-      initAudio();
-      soundEnabled = !soundEnabled;
-      soundBtn.innerHTML = soundEnabled ? "🔊" : "🔇";
-      soundBtn.setAttribute("title", soundEnabled ? "Mute Sound" : "Enable Sound FX");
-      if (soundEnabled) {
-        playCoinChime();
-        showToast("Audio FX Enabled 🔊");
-      } else {
-        showToast("Audio FX Muted 🔇");
-      }
-    });
+  function toggleSound() {
+    initAudio();
+    soundEnabled = !soundEnabled;
+    var icon = soundEnabled ? "🔊" : "🔇";
+    var title = soundEnabled ? "Mute Sound" : "Enable Sound FX";
+    if (soundBtn) {
+      soundBtn.innerHTML = icon;
+      soundBtn.setAttribute("title", title);
+    }
+    if (mobileSoundBtn) {
+      mobileSoundBtn.innerHTML = icon;
+      mobileSoundBtn.setAttribute("title", title);
+    }
+    if (soundEnabled) {
+      playCoinChime();
+      showToast("Audio FX Enabled 🔊");
+    } else {
+      showToast("Audio FX Muted 🔇");
+    }
   }
+
+  [soundBtn, mobileSoundBtn].forEach(function (btn) {
+    if (btn) {
+      btn.addEventListener("click", toggleSound);
+    }
+  });
 
   // --- Language Toggle & Full Content Translation ---
   var currentLang = "RU";
