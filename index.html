@@ -16,11 +16,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      rel="preload"
-      as="style"
-      href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700&display=swap"
-    />
-    <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700&display=swap"
     />
@@ -30,12 +25,6 @@
       as="font"
       type="font/ttf"
       crossorigin
-    />
-    <link
-      rel="preload"
-      href="./images/vector1.webp"
-      as="image"
-      fetchpriority="high"
     />
     <link rel="stylesheet" href="css/style.css" />
     <title>HOUSE OF GAMBLING — Direct iGaming Advertiser</title>
@@ -51,30 +40,41 @@
                 <a href="#" class="nav__logo" aria-label="House of Gambling Home">
                   🎰 HOUSE OF <span>GAMBLING</span>
                 </a>
-                <div
-                  class="mobile-lang"
-                  id="mobileLanguageToggle"
-                  role="button"
-                  tabindex="0"
-                  aria-label="Switch language"
-                >
-                  <img
-                    src="./images/icons/BtnLang.svg"
-                    alt=""
-                    width="28"
-                    height="28"
-                    aria-hidden="true"
-                  />
-                  <span class="mobile-lang__text">RU</span>
+                <div class="nav__mobile-actions">
+                  <button
+                    id="mobileSoundToggle"
+                    class="mobile-action-btn mobile-sound-btn"
+                    type="button"
+                    aria-label="Toggle sound fx"
+                    title="Enable Sound FX"
+                  >
+                    🔇
+                  </button>
+                  <div
+                    class="mobile-lang"
+                    id="mobileLanguageToggle"
+                    role="button"
+                    tabindex="0"
+                    aria-label="Switch language"
+                  >
+                    <img
+                      src="./images/icons/BtnLang.svg"
+                      alt=""
+                      width="20"
+                      height="20"
+                      aria-hidden="true"
+                    />
+                    <span class="mobile-lang__text">RU</span>
+                  </div>
+                  <button
+                    class="header__burger"
+                    type="button"
+                    aria-label="Toggle mobile menu"
+                    aria-expanded="false"
+                  >
+                    <span></span>
+                  </button>
                 </div>
-                <button
-                  class="header__burger"
-                  type="button"
-                  aria-label="Toggle mobile menu"
-                  aria-expanded="false"
-                >
-                  <span></span>
-                </button>
                 <ul class="nav__menu">
                   <li class="nav__menu-item">
                     <a class="nav__menu-link" href="#about" data-i18n="nav_about">О нас</a>
@@ -172,34 +172,52 @@
                 </div>
               </nav>
               <!-- Mobile Navigation Menu -->
-              <div class="mobile-nav">
+              <div class="mobile-nav" id="mobileNavMenu">
                 <ul class="mobile-nav__menu">
-                  <li class="nav__menu-item">
-                    <a class="nav__menu-link" href="#about" data-i18n="nav_about">О нас</a>
+                  <li class="mobile-nav__menu-item">
+                    <a class="mobile-nav__menu-link" href="#about" data-i18n="nav_about">
+                      <span>О нас</span>
+                      <span class="nav-arrow">→</span>
+                    </a>
                   </li>
-                  <li class="nav__menu-item">
-                    <a class="nav__menu-link" href="#grand" data-i18n="nav_grand">Grand VIP</a>
+                  <li class="mobile-nav__menu-item">
+                    <a class="mobile-nav__menu-link" href="#grand" data-i18n="nav_grand">
+                      <span>Grand VIP</span>
+                      <span class="nav-arrow">→</span>
+                    </a>
                   </li>
-                  <li class="nav__menu-item">
-                    <a class="nav__menu-link" href="#commissions" data-i18n="nav_commissions">Комиссии</a>
+                  <li class="mobile-nav__menu-item">
+                    <a class="mobile-nav__menu-link" href="#commissions" data-i18n="nav_commissions">
+                      <span>Комиссии</span>
+                      <span class="nav-arrow">→</span>
+                    </a>
                   </li>
-                  <li class="nav__menu-item">
-                    <a class="nav__menu-link" href="#blog" data-i18n="nav_blog">Блог</a>
+                  <li class="mobile-nav__menu-item">
+                    <a class="mobile-nav__menu-link" href="#blog" data-i18n="nav_blog">
+                      <span>Блог</span>
+                      <span class="nav-arrow">→</span>
+                    </a>
                   </li>
-                  <li class="nav__menu-item">
-                    <a class="nav__menu-link" href="#careers" data-i18n="nav_careers">Карьера</a>
+                  <li class="mobile-nav__menu-item">
+                    <a class="mobile-nav__menu-link" href="#careers" data-i18n="nav_careers">
+                      <span>Карьера</span>
+                      <span class="nav-arrow">→</span>
+                    </a>
                   </li>
-                  <li class="nav__menu-item">
-                    <a class="nav__menu-link" href="#contact" data-i18n="nav_contact">Контакты</a>
+                  <li class="mobile-nav__menu-item">
+                    <a class="mobile-nav__menu-link" href="#contact" data-i18n="nav_contact">
+                      <span>Контакты</span>
+                      <span class="nav-arrow">→</span>
+                    </a>
                   </li>
                 </ul>
                 <div class="mobile-nav__login">
-                  <div class="mobail-login-item" data-open-modal="login">
-                    <a class="mobail-login" href="#login" data-i18n="nav_login">Вход</a>
-                  </div>
-                  <div class="mobail-login-item active__color" data-open-modal="partner">
-                    <a class="mobail-sign" href="#signup" data-i18n="nav_signup">Регистрация</a>
-                  </div>
+                  <button class="mobile-nav__btn mobile-nav__btn--login" type="button" data-open-modal="login" data-i18n="nav_login">
+                    Вход
+                  </button>
+                  <button class="mobile-nav__btn mobile-nav__btn--signup" type="button" data-open-modal="partner" data-i18n="nav_signup">
+                    Регистрация
+                  </button>
                 </div>
               </div>
             </div>
@@ -255,7 +273,7 @@
                     alt=""
                     width="100"
                     height="1048"
-                    loading="lazy"
+                    decoding="async"
                   />
                 </div>
                 <div class="banner-bg__two">
@@ -264,7 +282,7 @@
                     alt=""
                     width="102"
                     height="1040"
-                    loading="lazy"
+                    decoding="async"
                   />
                 </div>
                 <div class="banner-bg__three">
@@ -273,7 +291,7 @@
                     alt=""
                     width="101"
                     height="1048"
-                    loading="lazy"
+                    decoding="async"
                   />
                 </div>
               </div>
@@ -286,7 +304,8 @@
                     alt=""
                     width="660"
                     height="50"
-                    loading="lazy"
+                    fetchpriority="high"
+                    decoding="async"
                   />
                 </div>
                 <div class="bg__mobile__two">
@@ -295,7 +314,7 @@
                     alt=""
                     width="600"
                     height="52"
-                    loading="lazy"
+                    decoding="async"
                   />
                 </div>
                 <div class="bg__mobile__three">
@@ -304,7 +323,7 @@
                     alt=""
                     width="651"
                     height="58"
-                    loading="lazy"
+                    decoding="async"
                   />
                 </div>
               </div>
@@ -409,7 +428,9 @@
                     alt=""
                     width="1100"
                     height="828"
-                    fetchpriority="high"
+                    fetchpriority="low"
+                    loading="lazy"
+                    decoding="async"
                   />
                 </div>
                 <div class="vector2">
@@ -418,7 +439,9 @@
                     alt=""
                     width="1300"
                     height="892"
+                    fetchpriority="low"
                     loading="lazy"
+                    decoding="async"
                   />
                 </div>
               </div>
@@ -492,7 +515,7 @@
           </section>
 
           <!-- ABOUT US SECTION -->
-          <section class="section section-alt" id="about">
+          <section class="section section-alt section-deferred" id="about">
             <div class="container">
               <div class="section-header reveal">
                 <span class="section-tag" data-i18n="about_tag">Преимущества</span>
@@ -563,7 +586,7 @@
           </section>
 
           <!-- GRAND PRIVILEGES & VIP SECTION -->
-          <section class="section" id="grand">
+          <section class="section section-deferred" id="grand">
             <div class="container">
               <div class="section-header reveal">
                 <span class="section-tag" data-i18n="grand_tag">VIP Привилегии</span>
@@ -679,7 +702,7 @@
           </section>
 
           <!-- COMMISSIONS & PROFIT CALCULATOR SECTION -->
-          <section class="section section-alt" id="commissions">
+          <section class="section section-alt section-deferred" id="commissions">
             <div class="container">
               <div class="section-header reveal">
                 <span class="section-tag" data-i18n="comm_tag">Калькулятор дохода</span>
@@ -816,7 +839,7 @@
           </section>
 
           <!-- BLOG & CASE STUDIES SECTION -->
-          <section class="section" id="blog">
+          <section class="section section-deferred" id="blog">
             <div class="container">
               <div class="section-header reveal">
                 <span class="section-tag">Блог &amp; Кейсы</span>
@@ -881,7 +904,7 @@
           </section>
 
           <!-- CAREERS SECTION -->
-          <section class="section section-alt" id="careers">
+          <section class="section section-alt section-deferred" id="careers">
             <div class="container">
               <div class="section-header reveal">
                 <span class="section-tag" data-i18n="careers_tag">Вакансии</span>
@@ -971,7 +994,7 @@
           </section>
 
           <!-- FAQ SECTION -->
-          <section class="section" id="faq">
+          <section class="section section-deferred" id="faq">
             <div class="container">
               <div class="section-header reveal">
                 <span class="section-tag">Вопросы и ответы</span>
@@ -1045,7 +1068,7 @@
           </section>
 
           <!-- CONTACT US SECTION -->
-          <section class="section section-alt" id="contact">
+          <section class="section section-alt section-deferred" id="contact">
             <div class="container">
               <div class="contact-grid">
                 <!-- Info panel -->
