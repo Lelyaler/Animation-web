@@ -540,7 +540,7 @@ body.menu-open {
 }
 
 .banner-bg::after {
-  content: ;
+  content: "";
   position: absolute;
   bottom: 0;
   left: 0;
