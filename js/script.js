@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", function () {
-  // --- Header Sticky Scrolled State ---
   var header = document.querySelector(".header");
   if (header) {
     var checkHeaderScroll = function () {
@@ -13,7 +12,6 @@ document.addEventListener("DOMContentLoaded", function () {
     checkHeaderScroll();
   }
 
-  // --- Mobile Burger Menu ---
   var burger = document.querySelector(".header__burger");
   var mobileNav = document.querySelector(".mobile-nav");
 
@@ -65,93 +63,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // --- Web Audio FX Synthesizer (No external assets required) ---
-  var audioCtx = null;
-  var soundEnabled = false;
-  var soundBtn = document.getElementById("soundToggle");
-  var mobileSoundBtn = document.getElementById("mobileSoundToggle");
-
-  function initAudio() {
-    if (!audioCtx) {
-      var AudioContext = window.AudioContext || window.webkitAudioContext;
-      if (AudioContext) {
-        audioCtx = new AudioContext();
-      }
-    }
-    if (audioCtx && audioCtx.state === "suspended") {
-      audioCtx.resume();
-    }
-  }
-
-  function playTone(freq, duration, type, startGain) {
-    if (!soundEnabled || !audioCtx) return;
-    try {
-      var osc = audioCtx.createOscillator();
-      var gain = audioCtx.createGain();
-      osc.type = type || "sine";
-      osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
-      gain.gain.setValueAtTime(startGain || 0.1, audioCtx.currentTime);
-      gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + duration);
-      osc.connect(gain);
-      gain.connect(audioCtx.destination);
-      osc.start();
-      osc.stop(audioCtx.currentTime + duration);
-    } catch (e) {
-      // Audio fallback silent
-    }
-  }
-
-  function playCoinChime() {
-    if (!soundEnabled) return;
-    initAudio();
-    var notes = [523.25, 659.25, 783.99, 1046.5];
-    notes.forEach(function (note, index) {
-      setTimeout(function () {
-        playTone(note, 0.25, "triangle", 0.12);
-      }, index * 80);
-    });
-  }
-
-  function playSpinSound() {
-    if (!soundEnabled) return;
-    initAudio();
-    for (var i = 0; i < 12; i++) {
-      (function (idx) {
-        setTimeout(function () {
-          playTone(200 + idx * 40, 0.08, "square", 0.04);
-        }, idx * 110);
-      })(i);
-    }
-  }
-
-  function toggleSound() {
-    initAudio();
-    soundEnabled = !soundEnabled;
-    var icon = soundEnabled ? "🔊" : "🔇";
-    var title = soundEnabled ? "Mute Sound" : "Enable Sound FX";
-    if (soundBtn) {
-      soundBtn.innerHTML = icon;
-      soundBtn.setAttribute("title", title);
-    }
-    if (mobileSoundBtn) {
-      mobileSoundBtn.innerHTML = icon;
-      mobileSoundBtn.setAttribute("title", title);
-    }
-    if (soundEnabled) {
-      playCoinChime();
-      showToast("Audio FX Enabled 🔊");
-    } else {
-      showToast("Audio FX Muted 🔇");
-    }
-  }
-
-  [soundBtn, mobileSoundBtn].forEach(function (btn) {
-    if (btn) {
-      btn.addEventListener("click", toggleSound);
-    }
-  });
-
-  // --- Language Toggle & Full Content Translation ---
   var currentLang = "RU";
   var languageToggle = document.getElementById("languageToggle");
   var mobileLanguageToggle = document.getElementById("mobileLanguageToggle");
@@ -171,7 +82,7 @@ document.addEventListener("DOMContentLoaded", function () {
       hero_badge: "Прямой рекламодатель в iGaming • Выплаты 24/7",
       hero_title_sub: "Повысьте ваш ROI с прямым рекламодателем",
       hero_btn_partner: "Стать партнером",
-      hero_btn_spin: "Крутить слоты 🎰",
+      hero_btn_spin: "Крутить слоты",
       hero_stat1: "Выплат в год",
       hero_stat2: "Активных ГЕО",
       hero_stat3: "Вебмастеров",
@@ -240,7 +151,7 @@ document.addEventListener("DOMContentLoaded", function () {
       hero_badge: "Direct iGaming Advertiser • 24/7 Payouts",
       hero_title_sub: "Raise your ROI with direct advertiser",
       hero_btn_partner: "Become a Partner",
-      hero_btn_spin: "Spin Reels 🎰",
+      hero_btn_spin: "Spin Reels",
       hero_stat1: "Paid out/year",
       hero_stat2: "Active GEOs",
       hero_stat3: "Webmasters",
@@ -315,7 +226,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (languageText) languageText.textContent = currentLang;
     if (mobileLangText) mobileLangText.textContent = currentLang;
     updateTexts(currentLang);
-    showToast("Language changed to " + currentLang);
+    showToast(currentLang === "RU" ? "Язык интерфейса: RU" : "Interface language: EN");
   };
 
   [languageToggle, mobileLanguageToggle].forEach(function (toggle) {
@@ -330,7 +241,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // --- Hero Payment Custom Scrollbar ---
   var content = document.querySelector(".banner-blog__payment-content");
   var scrollbarThumb = document.querySelector(".custom-scrollbar-thumb");
   var scrollbarTrack = document.querySelector(".custom-scrollbar-track");
@@ -354,20 +264,17 @@ document.addEventListener("DOMContentLoaded", function () {
     );
   }
 
-  // --- Slot Reels Spin Animation Trigger ---
   var spinBtn = document.getElementById("spinReelsBtn");
   var bannerContainer = document.querySelector(".banner");
 
   function triggerReelsSpin() {
     if (!bannerContainer) return;
     bannerContainer.classList.add("reels-spinning");
-    playSpinSound();
-    showToast("🎰 Reels are spinning at max velocity!");
+    showToast(currentLang === "RU" ? "Барабаны запущены" : "Reels spinning");
 
     setTimeout(function () {
       bannerContainer.classList.remove("reels-spinning");
-      playCoinChime();
-      showToast("🎉 JACKPOT! Direct advertiser boosted rates unlocked!");
+      showToast(currentLang === "RU" ? "Раунд завершен: коэффициенты обновлены" : "Round complete: rates updated");
     }, 1800);
   }
 
@@ -375,12 +282,10 @@ document.addEventListener("DOMContentLoaded", function () {
     spinBtn.addEventListener("click", triggerReelsSpin);
   }
 
-  // Also bind to any partner button with data-spin
   document.querySelectorAll("[data-action='spin']").forEach(function (btn) {
     btn.addEventListener("click", triggerReelsSpin);
   });
 
-  // --- Interactive Live Profit Calculator ---
   var ftdRange = document.getElementById("calcFtd");
   var ftdVal = document.getElementById("calcFtdVal");
   var depRange = document.getElementById("calcDep");
@@ -389,7 +294,7 @@ document.addEventListener("DOMContentLoaded", function () {
   var resYear = document.getElementById("calcResultYear");
   var calcTabs = document.querySelectorAll(".calc-tab");
 
-  var currentModel = "cpa"; // cpa | revshare | hybrid
+  var currentModel = "cpa";
 
   function recalculateProfit() {
     if (!ftdRange || !depRange || !resMonth) return;
@@ -401,15 +306,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
     var monthlyEarnings = 0;
     if (currentModel === "cpa") {
-      // Tiered CPA: Base $220, scaling up to $350 for high volumes
       var cpaRate = ftds > 300 ? 350 : ftds > 100 ? 280 : 220;
       monthlyEarnings = ftds * cpaRate;
     } else if (currentModel === "revshare") {
-      // Revshare 45% of estimated NGR (deposits * 2.8 average turnover * 0.45)
       var ngrEst = ftds * avgDep * 2.4;
       monthlyEarnings = Math.round(ngrEst * 0.45);
     } else {
-      // Hybrid: $140 CPA + 25% RevShare
       var hybridCpa = ftds * 140;
       var hybridRs = ftds * avgDep * 2.4 * 0.25;
       monthlyEarnings = Math.round(hybridCpa + hybridRs);
@@ -435,14 +337,12 @@ document.addEventListener("DOMContentLoaded", function () {
         tab.classList.add("active");
         currentModel = tab.getAttribute("data-model");
         recalculateProfit();
-        playTone(440, 0.1, "sine", 0.05);
       });
     });
 
     recalculateProfit();
   }
 
-  // --- FAQ Accordion ---
   var faqItems = document.querySelectorAll(".faq-item");
   faqItems.forEach(function (item) {
     var q = item.querySelector(".faq-question");
@@ -454,13 +354,11 @@ document.addEventListener("DOMContentLoaded", function () {
         });
         if (!isOpen) {
           item.classList.add("active");
-          playTone(550, 0.08, "sine", 0.03);
         }
       });
     }
   });
 
-  // --- Scroll Reveal Animations ---
   var revealElements = document.querySelectorAll(".reveal");
   if ("IntersectionObserver" in window) {
     var revealObserver = new IntersectionObserver(
@@ -484,7 +382,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // --- Back to Top Button ---
   var backToTopBtn = document.getElementById("backToTop");
   if (backToTopBtn) {
     window.addEventListener(
@@ -501,11 +398,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     backToTopBtn.addEventListener("click", function () {
       window.scrollTo({ top: 0, behavior: "smooth" });
-      playTone(600, 0.1, "sine", 0.05);
     });
   }
 
-  // --- Modals / Dialogs Management ---
   var partnerModal = document.getElementById("partnerModal");
   var loginModal = document.getElementById("loginModal");
   var articleModal = document.getElementById("articleModal");
@@ -513,8 +408,6 @@ document.addEventListener("DOMContentLoaded", function () {
   function openDialog(dlg) {
     if (dlg && typeof dlg.showModal === "function") {
       dlg.showModal();
-      initAudio();
-      playTone(587.33, 0.12, "sine", 0.06);
     }
   }
 
@@ -524,7 +417,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  // Open triggers
   document.querySelectorAll("[data-open-modal='partner']").forEach(function (btn) {
     btn.addEventListener("click", function (e) {
       e.preventDefault();
@@ -539,7 +431,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // Close triggers
   document.querySelectorAll(".dialog-close").forEach(function (btn) {
     btn.addEventListener("click", function () {
       var dlg = btn.closest("dialog");
@@ -547,7 +438,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // Light dismiss on backdrop click
   [partnerModal, loginModal, articleModal].forEach(function (dlg) {
     if (dlg) {
       dlg.addEventListener("click", function (e) {
@@ -558,7 +448,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // --- Case Study Article Quick View Modal ---
   var blogArticles = {
     1: {
       title: "Scaling LatAm Casino Traffic in 2026: Tier 2 Case Study (ROI 240%)",
@@ -596,7 +485,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // --- Interactive Forms Submission & Feedback ---
   var contactForm = document.getElementById("contactForm");
   var partnerForm = document.getElementById("partnerForm");
   var loginForm = document.getElementById("loginForm");
@@ -609,7 +497,7 @@ document.addEventListener("DOMContentLoaded", function () {
       var originalText = submitBtn ? submitBtn.textContent : "";
       if (submitBtn) {
         submitBtn.disabled = true;
-        submitBtn.textContent = "Processing...";
+        submitBtn.textContent = currentLang === "RU" ? "Отправка..." : "Processing...";
       }
 
       setTimeout(function () {
@@ -619,28 +507,26 @@ document.addEventListener("DOMContentLoaded", function () {
         }
         form.reset();
         if (closeDlg) closeDialog(closeDlg);
-        playCoinChime();
         showToast(successMsg);
-      }, 700);
+      }, 600);
     });
   }
 
   handleFormSubmit(
     contactForm,
-    "🚀 Request received! Your VIP manager will contact you in Telegram within 15 min."
+    "Заявка отправлена. Менеджер свяжется с вами в течение 15 минут."
   );
   handleFormSubmit(
     partnerForm,
-    "✨ Partner registration complete! Check your Telegram for login credentials.",
+    "Регистрация завершена. Данные для входа отправлены.",
     partnerModal
   );
   handleFormSubmit(
     loginForm,
-    "🔓 Welcome back! Redirecting to partner dashboard...",
+    "Вход выполнен. Перенаправление в кабинет партнера...",
     loginModal
   );
 
-  // --- Toast Notification Helper ---
   var toastEl = document.getElementById("toastMsg");
   var toastTimer = null;
 
@@ -651,9 +537,8 @@ document.addEventListener("DOMContentLoaded", function () {
     clearTimeout(toastTimer);
     toastTimer = setTimeout(function () {
       toastEl.classList.remove("show");
-    }, 4000);
+    }, 3500);
   }
 
-  // Initial language setup
   updateTexts("RU");
 });
