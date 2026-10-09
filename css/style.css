@@ -905,7 +905,7 @@ body.menu-open {
 
 /* LIVE STATS & TICKER BAR */
 .stats-banner {
-  padding: 60px 0 60px 0;
+  padding: 0 0 60px 0;
   position: relative;
   z-index: 10;
 }
