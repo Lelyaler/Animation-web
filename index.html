@@ -16,14 +16,27 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      rel="stylesheet"
+      rel="preload"
+      as="style"
       href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700&display=swap"
     />
     <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700&display=swap"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700&display=swap"
+      />
+    </noscript>
+    <link
       rel="preload"
-      href="fonts/Futura PT Medium.ttf"
+      href="fonts/futura-pt-medium.woff2"
       as="font"
-      type="font/ttf"
+      type="font/woff2"
       crossorigin
     />
     <link rel="stylesheet" href="css/style.css" />
@@ -34,29 +47,38 @@
       <div class="background__container">
         <div class="vector__container">
           <div class="vector1">
-            <img
-              src="./images/vector1.webp"
-              alt=""
-              width="900"
-              height="678"
-              fetchpriority="low"
-              loading="lazy"
-              decoding="async"
-            />
+            <picture>
+              <source media="(max-width: 820px)" srcset="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'/%3E" />
+              <source media="(min-width: 821px)" srcset="./images/vector1.webp" />
+              <img
+                src="./images/vector1.webp"
+                alt=""
+                width="900"
+                height="678"
+                fetchpriority="low"
+                loading="lazy"
+                decoding="async"
+              />
+            </picture>
           </div>
           <div class="vector2">
-            <img
-              src="./images/vector2.webp"
-              alt=""
-              width="1100"
-              height="755"
-              fetchpriority="low"
-              loading="lazy"
-              decoding="async"
-            />
+            <picture>
+              <source media="(max-width: 820px)" srcset="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'/%3E" />
+              <source media="(min-width: 821px)" srcset="./images/vector2.webp" />
+              <img
+                src="./images/vector2.webp"
+                alt=""
+                width="1100"
+                height="755"
+                fetchpriority="low"
+                loading="lazy"
+                decoding="async"
+              />
+            </picture>
           </div>
         </div>
         
+        <!-- Header & Navigation -->
         <header class="header">
           <div class="container">
             <div class="header__body">
@@ -66,22 +88,19 @@
                 </a>
                 <ul class="nav__menu">
                   <li class="nav__menu-item">
-                    <a class="nav__menu-link" href="#about" data-i18n="nav_about">О нас</a>
+                    <a class="nav__menu-link" href="#about" data-i18n="nav_about">Преимущества</a>
                   </li>
                   <li class="nav__menu-item">
-                    <a class="nav__menu-link" href="#grand" data-i18n="nav_grand">Grand VIP</a>
+                    <a class="nav__menu-link" href="#offers" data-i18n="nav_offers">Офферы</a>
                   </li>
                   <li class="nav__menu-item">
-                    <a class="nav__menu-link" href="#commissions" data-i18n="nav_commissions">Комиссии</a>
+                    <a class="nav__menu-link" href="#commissions" data-i18n="nav_commissions">Калькулятор</a>
                   </li>
                   <li class="nav__menu-item">
-                    <a class="nav__menu-link" href="#blog" data-i18n="nav_blog">Блог</a>
+                    <a class="nav__menu-link" href="#blog-preview" data-i18n="nav_payouts">Выплаты</a>
                   </li>
                   <li class="nav__menu-item">
-                    <a class="nav__menu-link" href="#careers" data-i18n="nav_careers">Карьера</a>
-                  </li>
-                  <li class="nav__menu-item">
-                    <a class="nav__menu-link" href="#contact" data-i18n="nav_contact">Контакты</a>
+                    <a class="nav__menu-link" href="#faq" data-i18n="nav_faq">FAQ</a>
                   </li>
                 </ul>
                 <div class="nav__login">
@@ -178,22 +197,22 @@
               <div class="mobile-nav" id="mobileNavMenu">
                 <ul class="mobile-nav__menu">
                   <li class="mobile-nav__menu-item">
-                    <a class="mobile-nav__menu-link" href="#about" data-i18n="nav_about">О нас</a>
+                    <a class="mobile-nav__menu-link" href="#about" data-i18n="nav_about">Преимущества</a>
                   </li>
                   <li class="mobile-nav__menu-item">
-                    <a class="mobile-nav__menu-link" href="#grand" data-i18n="nav_grand">Grand VIP</a>
+                    <a class="mobile-nav__menu-link" href="#offers" data-i18n="nav_offers">Офферы</a>
                   </li>
                   <li class="mobile-nav__menu-item">
-                    <a class="mobile-nav__menu-link" href="#commissions" data-i18n="nav_commissions">Комиссии</a>
+                    <a class="mobile-nav__menu-link" href="#commissions" data-i18n="nav_commissions">Калькулятор</a>
                   </li>
                   <li class="mobile-nav__menu-item">
-                    <a class="mobile-nav__menu-link" href="#blog" data-i18n="nav_blog">Блог</a>
+                    <a class="mobile-nav__menu-link" href="#blog-preview" data-i18n="nav_payouts">Выплаты</a>
                   </li>
                   <li class="mobile-nav__menu-item">
-                    <a class="mobile-nav__menu-link" href="#careers" data-i18n="nav_careers">Карьера</a>
+                    <a class="mobile-nav__menu-link" href="#faq" data-i18n="nav_faq">FAQ</a>
                   </li>
                   <li class="mobile-nav__menu-item">
-                    <a class="mobile-nav__menu-link" href="#contact" data-i18n="nav_contact">Контакты</a>
+                    <a class="mobile-nav__menu-link" href="mailto:support@houseofgambling.com" data-i18n="nav_support">Поддержка</a>
                   </li>
                 </ul>
                 <div class="mobile-nav__login">
@@ -212,6 +231,7 @@
         <main class="main">
           
           <div class="container">
+            <!-- Hero & Slot Reels -->
             <div class="banner">
               <div class="banner-area">
                 <div class="banner-badge">
@@ -251,31 +271,55 @@
 
               <div class="banner-bg">
                 <div class="banner-bg__one">
-                  <img src="./images/Line_Vertical_1.webp" alt="" width="100" height="986" decoding="async" />
-                  <img src="./images/Line_Vertical_1.webp" alt="" width="100" height="986" decoding="async" aria-hidden="true" />
+                  <picture>
+                    <source media="(min-width: 821px)" srcset="./images/Line_Vertical_1.webp" />
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'/%3E" alt="" width="100" height="986" loading="lazy" decoding="async" />
+                  </picture>
+                  <picture>
+                    <source media="(min-width: 821px)" srcset="./images/Line_Vertical_1.webp" />
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'/%3E" alt="" width="100" height="986" loading="lazy" decoding="async" aria-hidden="true" />
+                  </picture>
                 </div>
                 <div class="banner-bg__two">
-                  <img src="./images/Line_Vertical_2.webp" alt="" width="102" height="992" decoding="async" />
-                  <img src="./images/Line_Vertical_2.webp" alt="" width="102" height="992" decoding="async" aria-hidden="true" />
+                  <picture>
+                    <source media="(min-width: 821px)" srcset="./images/Line_Vertical_2.webp" />
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'/%3E" alt="" width="102" height="992" loading="lazy" decoding="async" />
+                  </picture>
+                  <picture>
+                    <source media="(min-width: 821px)" srcset="./images/Line_Vertical_2.webp" />
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'/%3E" alt="" width="102" height="992" loading="lazy" decoding="async" aria-hidden="true" />
+                  </picture>
                 </div>
                 <div class="banner-bg__three">
-                  <img src="./images/Line_Vertical_3.webp" alt="" width="101" height="869" decoding="async" />
-                  <img src="./images/Line_Vertical_3.webp" alt="" width="101" height="869" decoding="async" aria-hidden="true" />
+                  <picture>
+                    <source media="(min-width: 821px)" srcset="./images/Line_Vertical_3.webp" />
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'/%3E" alt="" width="101" height="869" loading="lazy" decoding="async" />
+                  </picture>
+                  <picture>
+                    <source media="(min-width: 821px)" srcset="./images/Line_Vertical_3.webp" />
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'/%3E" alt="" width="101" height="869" loading="lazy" decoding="async" aria-hidden="true" />
+                  </picture>
                 </div>
               </div>
 
               <div class="banner-bg__mobile">
                 <div class="bg__mobile__one">
-                  <img src="./images/Line_Vertical_1mobail.webp" alt="" width="500" height="37" decoding="async" />
-                  <img src="./images/Line_Vertical_1mobail.webp" alt="" width="500" height="37" decoding="async" aria-hidden="true" />
+                  <picture>
+                    <source media="(max-width: 820px)" srcset="./images/Line_Vertical_1mobail.webp" />
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'/%3E" alt="" width="500" height="37" loading="lazy" decoding="async" />
+                  </picture>
                 </div>
                 <div class="bg__mobile__two">
-                  <img src="./images/Line_Vertical_2mobail.webp" alt="" width="500" height="43" decoding="async" />
-                  <img src="./images/Line_Vertical_2mobail.webp" alt="" width="500" height="43" decoding="async" aria-hidden="true" />
+                  <picture>
+                    <source media="(max-width: 820px)" srcset="./images/Line_Vertical_2mobail.webp" />
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'/%3E" alt="" width="500" height="43" loading="lazy" decoding="async" />
+                  </picture>
                 </div>
                 <div class="bg__mobile__three">
-                  <img src="./images/Line_Vertical_3mobile.webp" alt="" width="500" height="44" decoding="async" />
-                  <img src="./images/Line_Vertical_3mobile.webp" alt="" width="500" height="44" decoding="async" aria-hidden="true" />
+                  <picture>
+                    <source media="(max-width: 820px)" srcset="./images/Line_Vertical_3mobile.webp" />
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'/%3E" alt="" width="500" height="44" loading="lazy" decoding="async" />
+                  </picture>
                 </div>
               </div>
 
@@ -373,6 +417,7 @@
               </div>
           </div>
 
+          <!-- Live Stats & Payouts Ticker -->
           <section class="stats-banner reveal">
             <div class="container">
               <div class="stats-grid">
@@ -437,6 +482,8 @@
             </div>
           </section>
 
+
+          <!-- Features & Advantages -->
           <section class="section section-alt section-deferred" id="about">
             <div class="container">
               <div class="section-header reveal">
@@ -451,7 +498,7 @@
 
               <div class="about-features-grid">
                 <div class="feature-card reveal">
-                  <div class="feature-card__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12l4 6-10 12L2 9z"/><path d="M2 9h20"/></svg></div>
+                  <div class="feature-card__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L4 6v6c0 5.5 3.8 10.7 8 12 4.2-1.3 8-6.5 8-12V6l-8-4z"/><path d="M9 12l2 2 4-4"/></svg></div>
                   <h3 class="feature-card__title" data-i18n="about_card1_title">Прямой рекламодатель</h3>
                   <p class="feature-card__text" data-i18n="about_card1_text">
                     Эксклюзивные лицензионные офферы с высочайшими ставками CPA до $450 и RevShare до 55%. Никаких ресейлеров и срезов.
@@ -460,8 +507,8 @@
                 </div>
 
                 <div class="feature-card reveal">
-                  <div class="feature-card__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
-                  <h3 class="feature-card__title" data-i18n="about_card2_title">Субсекундная аналитика</h3>
+                  <div class="feature-card__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M18 9l-5 5-4-4-5 5"/><path d="M14 9h4v4"/></svg></div>
+                  <h3 class="feature-card__title" data-i18n="about_card2_title">Моментальная аналитика</h3>
                   <p class="feature-card__text" data-i18n="about_card2_text">
                     Детальные когортные отчеты, интеграция с Keitaro, Binom и трекерами через постбеки в реальном времени.
                   </p>
@@ -469,7 +516,7 @@
                 </div>
 
                 <div class="feature-card reveal">
-                  <div class="feature-card__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></div>
+                  <div class="feature-card__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></div>
                   <h3 class="feature-card__title" data-i18n="about_card3_title">Готовые связки и PWA</h3>
                   <p class="feature-card__text" data-i18n="about_card3_text">
                     Бесплатные проверенные PWA/iOS приложения, конвертящие прелендинги и свежие промо-материалы каждую неделю.
@@ -478,7 +525,7 @@
                 </div>
 
                 <div class="feature-card reveal">
-                  <div class="feature-card__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg></div>
+                  <div class="feature-card__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="6"/><path d="M18 6v12"/><path d="M15 9h6"/><path d="M15 15h6"/><path d="M8 5v6"/><path d="M6 7h4"/></svg></div>
                   <h3 class="feature-card__title" data-i18n="about_card4_title">Выплаты без холда</h3>
                   <p class="feature-card__text" data-i18n="about_card4_text">
                     Вывод на USDT (TRC20/ERC20), Bitcoin, Банковские карты, Skrill, Neteller и Capitalist в день запроса.
@@ -487,7 +534,7 @@
                 </div>
 
                 <div class="feature-card reveal">
-                  <div class="feature-card__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
+                  <div class="feature-card__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 17l3-11 5 6 4-8 5 9 3-7 1 11H2z"/><circle cx="12" cy="18" r="1"/></svg></div>
                   <h3 class="feature-card__title" data-i18n="about_card5_title">Высокий LTV игроков</h3>
                   <p class="feature-card__text" data-i18n="about_card5_text">
                     Мощная внутренняя VIP-программа удержания игроков и мультиязычный саппорт 24/7 максимизируют ваш профит.
@@ -496,7 +543,7 @@
                 </div>
 
                 <div class="feature-card reveal">
-                  <div class="feature-card__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+                  <div class="feature-card__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg></div>
                   <h3 class="feature-card__title" data-i18n="about_card6_title">Персональный менеджер</h3>
                   <p class="feature-card__text" data-i18n="about_card6_text">
                     Индивидуальный саппорт без очередей, помощь с настройкой постбеков, кастомные лендинги и бонусы.
@@ -507,119 +554,132 @@
             </div>
           </section>
 
-          <section class="section section-deferred" id="grand">
+          <!-- Game Verticals & Exclusive Offers Showcase -->
+          <section class="section section-deferred" id="offers">
             <div class="container">
               <div class="section-header reveal">
-                <span class="section-tag" data-i18n="grand_tag">VIP Привилегии</span>
-                <h2 class="section-title" data-i18n="grand_title">
-                  Программа привилегий Grand Club
+                <span class="section-tag" data-i18n="offers_tag">Игровые вертикали</span>
+                <h2 class="section-title" data-i18n="offers_title">
+                  Эксклюзивные лицензионные офферы
                 </h2>
-                <p class="section-subtitle" data-i18n="grand_subtitle">
-                  Растите объемы трафика и открывайте эксклюзивные условия сотрудничества и приватные подарки.
+                <p class="section-subtitle" data-i18n="offers_subtitle">
+                  Высококонвертящие продукты с максимальными ставками CPA и пожизненным RevShare для любого типа трафика.
                 </p>
               </div>
 
-              <div class="grand-tiers">
-                
-                <div class="grand-card reveal">
-                  <div class="grand-card__header">
-                    <h3 class="grand-card__name" data-i18n="grand_tier1">Silver Partner</h3>
-                    <div class="grand-card__rate">40%</div>
-                    <div class="grand-card__subrate">RevShare или CPA до $220</div>
+              <div class="offers-grid reveal">
+                <!-- Offer 1: Slots -->
+                <article class="offer-card">
+                  <div class="offer-card__image-wrap">
+                    <img
+                      src="./images/offers/offer-slots.webp"
+                      alt="Эксклюзивные слоты и джекпоты"
+                      class="offer-card__img"
+                      width="720"
+                      height="401"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                    <div class="offer-card__image-overlay"></div>
+                    <span class="offer-card__badge">CPA до $450 • RS 55%</span>
                   </div>
-                  <ul class="grand-perks">
-                    <li class="grand-perk">
-                      <span class="grand-perk__icon">✓</span>
-                      <span>Еженедельные выплаты</span>
-                    </li>
-                    <li class="grand-perk">
-                      <span class="grand-perk__icon">✓</span>
-                      <span>Базовый набор креативов и лендингов</span>
-                    </li>
-                    <li class="grand-perk">
-                      <span class="grand-perk__icon">✓</span>
-                      <span>Постбек трекинг через API</span>
-                    </li>
-                    <li class="grand-perk">
-                      <span class="grand-perk__icon">✓</span>
-                      <span>Поддержка 24/7 в тикетах</span>
-                    </li>
-                  </ul>
-                  <button class="grand-btn" type="button" data-open-modal="partner">
-                    Выбрать тариф
-                  </button>
-                </div>
+                  <div class="offer-card__content">
+                    <h3 class="offer-card__title">Эксклюзивные слоты и джекпоты</h3>
+                    <p class="offer-card__desc">
+                      Лицензионные слоты Pragmatic Play, Nolimit City и Hacksaw. Повышенный локальный RTP 96.8%, моментальные депозиты и рекордный процент повторных пополнений.
+                    </p>
+                    <div class="offer-card__footer">
+                      <div class="offer-card__stat">Средний конверт Reg2Dep: <strong>38.4%</strong></div>
+                      <button class="offer-card__btn" type="button" data-open-modal="partner">Подключить</button>
+                    </div>
+                  </div>
+                </article>
 
-                <div class="grand-card grand-card--popular reveal">
-                  <div class="tier-ribbon">Самый популярный</div>
-                  <div class="grand-card__header">
-                    <h3 class="grand-card__name" data-i18n="grand_tier2">Gold VIP</h3>
-                    <div class="grand-card__rate">48%</div>
-                    <div class="grand-card__subrate">RevShare или CPA до $350</div>
+                <!-- Offer 2: Live Casino -->
+                <article class="offer-card">
+                  <div class="offer-card__image-wrap">
+                    <img
+                      src="./images/offers/offer-live.webp"
+                      alt="VIP Live Казино и рулетка"
+                      class="offer-card__img"
+                      width="720"
+                      height="401"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                    <div class="offer-card__image-overlay"></div>
+                    <span class="offer-card__badge">High Roller LTV</span>
                   </div>
-                  <ul class="grand-perks">
-                    <li class="grand-perk">
-                      <span class="grand-perk__icon">✓</span>
-                      <span>Выплаты 2 раза в неделю без холда</span>
-                    </li>
-                    <li class="grand-perk">
-                      <span class="grand-perk__icon">✓</span>
-                      <span>Индивидуальные прелендинги и PWA</span>
-                    </li>
-                    <li class="grand-perk">
-                      <span class="grand-perk__icon">✓</span>
-                      <span>Выделенный VIP-менеджер в Telegram</span>
-                    </li>
-                    <li class="grand-perk">
-                      <span class="grand-perk__icon">✓</span>
-                      <span>Доступ к приватным ГЕО и офферам</span>
-                    </li>
-                    <li class="grand-perk">
-                      <span class="grand-perk__icon">✓</span>
-                      <span>Компенсация комиссий на вывод 100%</span>
-                    </li>
-                  </ul>
-                  <button class="grand-btn" type="button" data-open-modal="partner">
-                    Стать Gold VIP
-                  </button>
-                </div>
+                  <div class="offer-card__content">
+                    <h3 class="offer-card__title">VIP Live Казино и рулетка</h3>
+                    <p class="offer-card__desc">
+                      Прямые трансляции Evolution и Pragmatic Live с профессиональными дилерами. Премиум хайроллер аудитория со средним депозитом от $250 и удержанием 12+ месяцев.
+                    </p>
+                    <div class="offer-card__footer">
+                      <div class="offer-card__stat">Средний чек игрока: <strong>$280</strong></div>
+                      <button class="offer-card__btn" type="button" data-open-modal="partner">Подключить</button>
+                    </div>
+                  </div>
+                </article>
 
-                <div class="grand-card reveal">
-                  <div class="grand-card__header">
-                    <h3 class="grand-card__name" data-i18n="grand_tier3">Grand Legend</h3>
-                    <div class="grand-card__rate">55%+</div>
-                    <div class="grand-card__subrate">RevShare или CPA $450+</div>
+                <!-- Offer 3: Crash Games -->
+                <article class="offer-card">
+                  <div class="offer-card__image-wrap">
+                    <img
+                      src="./images/offers/offer-crash.webp"
+                      alt="Краш-игры и Aviator"
+                      class="offer-card__img"
+                      width="720"
+                      height="401"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                    <div class="offer-card__image-overlay"></div>
+                    <span class="offer-card__badge">FTD конверт 44%</span>
                   </div>
-                  <ul class="grand-perks">
-                    <li class="grand-perk">
-                      <span class="grand-perk__icon">✓</span>
-                      <span>Ежедневные моментальные выплаты</span>
-                    </li>
-                    <li class="grand-perk">
-                      <span class="grand-perk__icon">✓</span>
-                      <span>Предоплата бюджетов на рекламу</span>
-                    </li>
-                    <li class="grand-perk">
-                      <span class="grand-perk__icon">✓</span>
-                      <span>Персональный тех. инженер и разработчик</span>
-                    </li>
-                    <li class="grand-perk">
-                      <span class="grand-perk__icon">✓</span>
-                      <span>Приглашения на закрытые митапы (Монако, Дубай)</span>
-                    </li>
-                    <li class="grand-perk">
-                      <span class="grand-perk__icon">✓</span>
-                      <span>Индивидуальный договор и эксклюзив</span>
-                    </li>
-                  </ul>
-                  <button class="grand-btn" type="button" data-open-modal="partner">
-                    Подключить Legend
-                  </button>
-                </div>
+                  <div class="offer-card__content">
+                    <h3 class="offer-card__title">Краш-игры и быстрые раунды</h3>
+                    <p class="offer-card__desc">
+                      Флагманские тайтлы Aviator, JetX, Rocket и Mines. Топовая конверсия с TikTok, In-App и схемного трафика в Tier-2, LatAm (Бразилия, Чили) и Азии.
+                    </p>
+                    <div class="offer-card__footer">
+                      <div class="offer-card__stat">Быстрый цикл окупаемости: <strong>&lt; 24 часов</strong></div>
+                      <button class="offer-card__btn" type="button" data-open-modal="partner">Подключить</button>
+                    </div>
+                  </div>
+                </article>
+
+                <!-- Offer 4: Sportsbook -->
+                <article class="offer-card">
+                  <div class="offer-card__image-wrap">
+                    <img
+                      src="./images/offers/offer-sports.webp"
+                      alt="Спорт и Cyber Esports"
+                      class="offer-card__img"
+                      width="720"
+                      height="401"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                    <div class="offer-card__image-overlay"></div>
+                    <span class="offer-card__badge">Линия 50+ дисциплин</span>
+                  </div>
+                  <div class="offer-card__content">
+                    <h3 class="offer-card__title">Спорт и киберспортивный беттинг</h3>
+                    <p class="offer-card__desc">
+                      Широкая роспись событий, ставки в 1 клик, трансляции матчей в реальном времени. Эксклюзивные котировки на футбол, UFC и главные турниры по CS2 и Dota 2.
+                    </p>
+                    <div class="offer-card__footer">
+                      <div class="offer-card__stat">Оборот ставок в месяц: <strong>$12.5M+</strong></div>
+                      <button class="offer-card__btn" type="button" data-open-modal="partner">Подключить</button>
+                    </div>
+                  </div>
+                </article>
               </div>
             </div>
           </section>
 
+          <!-- Commissions & ROI Calculator -->
           <section class="section section-alt section-deferred" id="commissions">
             <div class="container">
               <div class="section-header reveal">
@@ -755,159 +815,9 @@
             </div>
           </section>
 
-          <section class="section section-deferred" id="blog">
-            <div class="container">
-              <div class="section-header reveal">
-                <span class="section-tag">Блог &amp; Кейсы</span>
-                <h2 class="section-title" data-i18n="blog_section_title">
-                  Новости и кейсы медиабаинга
-                </h2>
-                <p class="section-subtitle" data-i18n="blog_section_sub">
-                  Практические разборы связок, аналитика рынков и обновления платежных систем.
-                </p>
-              </div>
 
-              <div class="blog-cards-grid">
-                <article class="blog-card reveal">
-                  <div class="blog-card__meta">
-                    <span class="blog-tag">Кейс • ROI 240%</span>
-                    <span class="blog-card__date">14.02.2025</span>
-                  </div>
-                  <h3 class="blog-card__title">
-                    Масштабирование казино трафика в Бразилии и Чили: Кейс 2025-2026
-                  </h3>
-                  <p class="blog-card__text">
-                    Как наш партнер залил более 14,000 FTD за полгода с помощью локальных платежей Pix и оптимизированных прелендингов с нативным дизайном.
-                  </p>
-                  <button class="blog-read-more" data-article-id="1" type="button">
-                    Читать кейс →
-                  </button>
-                </article>
 
-                <article class="blog-card reveal">
-                  <div class="blog-card__meta">
-                    <span class="blog-tag">Технологии</span>
-                    <span class="blog-card__date">08.02.2025</span>
-                  </div>
-                  <h3 class="blog-card__title">
-                    PWA против нативных iOS приложений: сравнение конверсии и банов
-                  </h3>
-                  <p class="blog-card__text">
-                    Большой тест на $200,000 рекламного бюджета в TikTok и Facebook. Почему прогрессивные веб-приложения стали стандартом залива трафика.
-                  </p>
-                  <button class="blog-read-more" data-article-id="2" type="button">
-                    Читать статью →
-                  </button>
-                </article>
-
-                <article class="blog-card reveal">
-                  <div class="blog-card__meta">
-                    <span class="blog-tag">Стратегия</span>
-                    <span class="blog-card__date">01.02.2025</span>
-                  </div>
-                  <h3 class="blog-card__title">
-                    Как выжать максимум из RevShare: секреты удержания хайроллеров
-                  </h3>
-                  <p class="blog-card__text">
-                    Как работает внутренняя CRM-система House of Gambling, доводя среднюю продолжительность активных депозитов игрока до 11.4 месяцев.
-                  </p>
-                  <button class="blog-read-more" data-article-id="3" type="button">
-                    Читать гайд →
-                  </button>
-                </article>
-              </div>
-            </div>
-          </section>
-
-          <section class="section section-alt section-deferred" id="careers">
-            <div class="container">
-              <div class="section-header reveal">
-                <span class="section-tag" data-i18n="careers_tag">Вакансии</span>
-                <h2 class="section-title" data-i18n="careers_title">
-                  Карьера в House of Gambling
-                </h2>
-                <p class="section-subtitle" data-i18n="careers_subtitle">
-                  Присоединяйтесь к международной команде лидеров аффилиат-индустрии. Удаленная работа и бонусы.
-                </p>
-              </div>
-
-              <div class="careers-grid">
-                <div class="career-card reveal">
-                  <div class="career-card__header">
-                    <h3 class="career-card__title">Senior Affiliate Manager</h3>
-                    <span class="career-badge">Hot vacancy</span>
-                  </div>
-                  <p class="career-card__desc">
-                    Развитие отношений с ТОП-вебмастерами, онбординг команд медиабаинга, помощь с оптимизацией связок и решение операционных задач.
-                  </p>
-                  <div class="career-tags">
-                    <span class="career-tag-item">Remote</span>
-                    <span class="career-tag-item">Full-Time</span>
-                    <span class="career-tag-item">$3,000 - $6,000 + % KPI</span>
-                    <span class="career-tag-item">Crypto / EUR</span>
-                  </div>
-                  <button class="career-apply-btn" type="button" data-open-modal="partner">
-                    Откликнуться
-                  </button>
-                </div>
-
-                <div class="career-card reveal">
-                  <div class="career-card__header">
-                    <h3 class="career-card__title">Senior Media Buyer (FB / PPC)</h3>
-                    <span class="career-badge">High budget</span>
-                  </div>
-                  <p class="career-card__desc">
-                    Залив iGaming трафика на собственные бренды компании с неограниченными бюджетами. Полная инфраструктура аккаунтов, карт и прилок.
-                  </p>
-                  <div class="career-tags">
-                    <span class="career-tag-item">Remote</span>
-                    <span class="career-tag-item">In-House Team</span>
-                    <span class="career-tag-item">До 50% от чистого профита</span>
-                  </div>
-                  <button class="career-apply-btn" type="button" data-open-modal="partner">
-                    Откликнуться
-                  </button>
-                </div>
-
-                <div class="career-card reveal">
-                  <div class="career-card__header">
-                    <h3 class="career-card__title">Creative Frontend &amp; PWA Dev</h3>
-                    <span class="career-badge">Tech lead</span>
-                  </div>
-                  <p class="career-card__desc">
-                    Разработка интерактивных прелендингов, геймифицированных колес фортуны, PWA-оболочек и оптимизация скорости загрузки до 99 PageSpeed.
-                  </p>
-                  <div class="career-tags">
-                    <span class="career-tag-item">Remote / Кипр</span>
-                    <span class="career-tag-item">JavaScript / CSS3</span>
-                    <span class="career-tag-item">$3,500 - $5,500</span>
-                  </div>
-                  <button class="career-apply-btn" type="button" data-open-modal="partner">
-                    Откликнуться
-                  </button>
-                </div>
-
-                <div class="career-card reveal">
-                  <div class="career-card__header">
-                    <h3 class="career-card__title">Head of VIP Retention &amp; CRM</h3>
-                    <span class="career-badge">Key role</span>
-                  </div>
-                  <p class="career-card__desc">
-                    Управление коммуникациями с хайроллерами, настройка триггерных цепочек реактивации, организация персональных промо и бонусов.
-                  </p>
-                  <div class="career-tags">
-                    <span class="career-tag-item">Remote</span>
-                    <span class="career-tag-item">Опыт iGaming от 3 лет</span>
-                    <span class="career-tag-item">$4,000 - $7,000 + Бонусы</span>
-                  </div>
-                  <button class="career-apply-btn" type="button" data-open-modal="partner">
-                    Откликнуться
-                  </button>
-                </div>
-              </div>
-            </div>
-          </section>
-
+          <!-- FAQ Accordion -->
           <section class="section section-deferred" id="faq">
             <div class="container">
               <div class="section-header reveal">
@@ -918,7 +828,7 @@
               </div>
 
               <div class="faq-wrap reveal">
-                <div class="faq-item active">
+                <div class="faq-item">
                   <button class="faq-question" type="button">
                     <span>Как часто и какими способами выплачиваются средства?</span>
                     <span class="faq-icon">+</span>
@@ -980,121 +890,10 @@
               </div>
             </div>
           </section>
-
-          <section class="section section-alt section-deferred" id="contact">
-            <div class="container">
-              <div class="contact-grid">
-                
-                <div class="contact-info-panel reveal">
-                  <span class="section-tag">Связь 24/7</span>
-                  <h2 class="section-title" data-i18n="contact_title">
-                    Готовы масштабировать трафик?
-                  </h2>
-                  <p class="section-subtitle" data-i18n="contact_sub">
-                    Оставьте заявку или свяжитесь с нами напрямую через Telegram — аппрув аккаунта за 15 минут.
-                  </p>
-
-                  <a href="https://t.me/" target="_blank" rel="noopener noreferrer" class="contact-channel-card">
-                    <div class="contact-channel-icon">✈</div>
-                    <div class="contact-channel-content">
-                      <h4>Telegram Поддержка</h4>
-                      <p>@HouseOfGamblingSupport</p>
-                    </div>
-                  </a>
-
-                  <a href="mailto:partners@houseofgambling.io" class="contact-channel-card">
-                    <div class="contact-channel-icon">✉</div>
-                    <div class="contact-channel-content">
-                      <h4>Email для партнеров</h4>
-                      <p>partners@houseofgambling.io</p>
-                    </div>
-                  </a>
-
-                  <div class="contact-channel-card">
-                    <div class="contact-channel-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
-                    <div class="contact-channel-content">
-                      <h4>Штаб-квартиры</h4>
-                      <p>Лимассол (Кипр) • Сент-Джулианс (Мальта)</p>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="contact-form-panel reveal">
-                  <h3 class="contact-form-title">Заявка на партнерство</h3>
-                  <p class="contact-form-subtitle">
-                    Заполните форму, и мы свяжемся с вами с индивидуальным предложением
-                  </p>
-
-                  <form id="contactForm">
-                    <div class="form-grid">
-                      <div class="form-group">
-                        <label class="form-label" for="formName" data-i18n="form_name">Ваше имя</label>
-                        <input
-                          type="text"
-                          id="formName"
-                          class="form-input"
-                          placeholder="Александр"
-                          required
-                        />
-                      </div>
-
-                      <div class="form-group">
-                        <label class="form-label" for="formTelegram" data-i18n="form_tg">Telegram / Skype</label>
-                        <input
-                          type="text"
-                          id="formTelegram"
-                          class="form-input"
-                          placeholder="@username"
-                          required
-                        />
-                      </div>
-
-                      <div class="form-group">
-                        <label class="form-label" for="formEmail" data-i18n="form_email">Email адрес</label>
-                        <input
-                          type="email"
-                          id="formEmail"
-                          class="form-input"
-                          placeholder="partner@example.com"
-                          required
-                        />
-                      </div>
-
-                      <div class="form-group">
-                        <label class="form-label" for="formSource" data-i18n="form_source">Основной источник трафика</label>
-                        <select id="formSource" class="form-select">
-                          <option value="facebook">Facebook / Instagram Ads</option>
-                          <option value="google">Google Ads (PPC / UAC)</option>
-                          <option value="seo">SEO / Органический поиск</option>
-                          <option value="tiktok">TikTok / Reels / Shorts</option>
-                          <option value="inapp">In-App / ASO</option>
-                          <option value="streams">Стримы / Инфлюенсеры</option>
-                          <option value="other">Другой источник</option>
-                        </select>
-                      </div>
-
-                      <div class="form-group full-width">
-                        <label class="form-label" for="formMsg" data-i18n="form_msg">Комментарий (объемы, целевые ГЕО)</label>
-                        <textarea
-                          id="formMsg"
-                          class="form-textarea"
-                          placeholder="Заливаем Tier-1 и LatAm, объем 50-100 FTD в день..."
-                        ></textarea>
-                      </div>
-                    </div>
-
-                    <button class="form-submit-btn" type="submit" data-i18n="form_btn">
-                      Отправить заявку
-                    </button>
-                  </form>
-                </div>
-              </div>
-            </div>
-          </section>
         </main>
-      </div>
 
-      <footer class="footer">
+        <!-- Footer -->
+        <footer class="footer">
         <div class="container">
           <div class="nav-footer">
             <ul class="nav-footer__menu">
@@ -1105,7 +904,7 @@
                 <a class="nav__menu-link" href="#cookies">Cookies Policy</a>
               </li>
               <li class="nav__menu-footer">
-                <a class="nav__menu-link" href="#contact">Contacts &amp; Support</a>
+                <a class="nav__menu-link" href="mailto:support@houseofgambling.com">Contacts &amp; Support</a>
               </li>
             </ul>
             <div class="social-links">
@@ -1117,6 +916,8 @@
                     alt=""
                     width="24"
                     height="24"
+                    loading="lazy"
+                    decoding="async"
                     aria-hidden="true"
                   />
                 </a>
@@ -1126,6 +927,8 @@
                     alt=""
                     width="24"
                     height="24"
+                    loading="lazy"
+                    decoding="async"
                     aria-hidden="true"
                   />
                 </a>
@@ -1135,6 +938,8 @@
                     alt=""
                     width="24"
                     height="24"
+                    loading="lazy"
+                    decoding="async"
                     aria-hidden="true"
                   />
                 </a>
@@ -1144,6 +949,8 @@
                     alt=""
                     width="24"
                     height="24"
+                    loading="lazy"
+                    decoding="async"
                     aria-hidden="true"
                   />
                 </a>
@@ -1153,6 +960,8 @@
                     alt=""
                     width="24"
                     height="24"
+                    loading="lazy"
+                    decoding="async"
                     aria-hidden="true"
                   />
                 </a>
@@ -1162,6 +971,8 @@
                     alt=""
                     width="24"
                     height="24"
+                    loading="lazy"
+                    decoding="async"
                     aria-hidden="true"
                   />
                 </a>
@@ -1175,7 +986,9 @@
         </div>
       </footer>
     </div>
+  </div>
 
+    <!-- Modals & Dialogs -->
     <dialog id="partnerModal" class="custom-dialog">
       <div class="dialog-header">
         <h3 class="dialog-title">Стать партнером House of Gambling</h3>
@@ -1257,6 +1070,6 @@
       ↑
     </button>
 
-    <script defer src="js/script.js"></script>
+    <script type="module" src="./js/main.js"></script>
   </body>
 </html>
