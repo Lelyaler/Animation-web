@@ -15,65 +15,18 @@
   max-width: 680px;
 }
 
-.banner-badge {
-  position: relative;
+.banner-kicker {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 8px 18px;
-  border-radius: var(--radius-pill);
-  background: rgba(249, 114, 71, 0.15);
-  border: 1px solid var(--color-primary);
-  color: var(--color-accent);
-  font-size: 14px;
-  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.banner-kicker__text {
+  color: var(--color-primary);
+  font-size: 13.5px;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 1px;
-  margin-bottom: 24px;
-}
-
-.banner-badge::before {
-  content: '';
-  position: absolute;
-  inset: -1px;
-  border-radius: inherit;
-  border: 1px solid rgba(249, 114, 71, 0.6);
-  opacity: 0;
-  pointer-events: none;
-  animation: pulseBadgeComposited 3s infinite ease-in-out;
-}
-
-.banner-badge__dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: #39e75f;
-  box-shadow: 0 0 8px #39e75f;
-  animation: pulseDot 2s infinite ease-in-out;
-}
-
-@keyframes pulseBadgeComposited {
-  0%,
-  100% {
-    transform: scale(1);
-    opacity: 0;
-  }
-  50% {
-    transform: scale(1.04);
-    opacity: 0.7;
-  }
-}
-
-@keyframes pulseDot {
-  0%,
-  100% {
-    transform: scale(1);
-    opacity: 0.85;
-  }
-  50% {
-    transform: scale(1.25);
-    opacity: 1;
-  }
+  letter-spacing: 1.5px;
 }
 
 .banner-area__title {
